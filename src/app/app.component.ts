@@ -16,8 +16,8 @@ export class AppComponent {
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
     const inputInt = parseInt(newInput);
-    const isNumber = isNaN(inputInt);
-    if (!isNumber) this.length = inputInt;
+    const isPositiveNumber = inputInt > 0;
+    if (!isPositiveNumber) this.length = inputInt;
   };
 
   toggleUpperLetter = () => {
@@ -35,4 +35,6 @@ export class AppComponent {
   toggleSymbol = () => {
     this.includeSymbol = !this.includeSymbol;
   };
+
+  generatePassword = () => {};
 }

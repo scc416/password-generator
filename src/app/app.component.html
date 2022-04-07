@@ -15,7 +15,17 @@
   >Include Symbols</label
 >
 
-<button>Generate</button>
+<button
+  [disabled]="
+    length <= 0 ||
+    (!includeUpperLetter &&
+      !includeLowerLetter &&
+      !includeNumber &&
+      !includeSymbol)
+  "
+>
+  Generate
+</button>
 
 <label>Password</label>
 <input type="number" [value]="password" />
