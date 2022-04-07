@@ -20,4 +20,6 @@
 <div *ngIf="password">
   <label>Password</label>
   <div>{{ password }}</div>
+  <button (click)="copyPassword()">Copy</button>
+  <div *ngIf="showHint">Password is copied to clipboard</div>
 </div>

@@ -4,6 +4,7 @@ const letters = 'abcdefghijklmnopqrstuvwxyz';
 const numbers = '0123456789';
 const symbols = ` !"#$%&'()*+,-./:;<=>?@[]^_\\` + '`{|}~';
 const ERROR_SHOW = 5000;
+const HINT_SHOW = 1500;
 
 const getRandomNum = (num: number) => Math.floor(Math.random() * num);
 const getPassword = (length: number, options: string) => {
@@ -30,6 +31,7 @@ export class AppComponent {
   includeSymbol = true;
   password = '';
   error = '';
+  showHint = false;
 
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
@@ -86,5 +88,10 @@ export class AppComponent {
     const stringOption = this.getPasswordOption();
     const newPassword = getPassword(this.length, stringOption);
     this.password = newPassword;
+  };
+  copyPassword = () => {
+    navigator.clipboard.writeText(this.password);
+    this.showHint = true;
+    setTimeout(() => (this.showHint = false), HINT_SHOW);
   };
 }
