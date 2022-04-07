@@ -38,7 +38,10 @@
     </div>
 
     <div class="block">
-      <button (click)="generatePassword()" class="button is-primary">
+      <button
+        (click)="generatePassword()"
+        class="button is-primary is-fullwidth"
+      >
         Generate
       </button>
       <span *ngIf="error" class="tag is-danger is-light">{{ error }}</span>
@@ -46,12 +49,11 @@
 
     <div class="block">
       <article class="message" *ngIf="password">
-        <div class="message-header">
-          <p>Password</p>
-        </div>
         <div class="message-body">
           {{ password }}
-          <button (click)="copyPassword()">Copy</button>
+          <button (click)="copyPassword()" class="button is-small is-outlined">
+            Copy
+          </button>
           <span *ngIf="showHint" class="tag is-success">
             Copied to clipboard
           </span>
