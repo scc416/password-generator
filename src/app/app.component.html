@@ -17,5 +17,7 @@
 
 <button (click)="generatePassword()">Generate</button>
 <div *ngIf="error">ERROR: {{ error }}</div>
-<label>Password</label>
-<div>{{ password }}</div>
+<div *ngIf="password">
+  <label>Password</label>
+  <div>{{ password }}</div>
+</div>
