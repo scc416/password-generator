@@ -17,6 +17,15 @@ https://pw-genarator.vercel.app/
 
 ## Final Product
 
+![desktop](./docs/desktop.png)  
+Initial page
+
+![copied](./docs/copied.png)  
+User can copy the generated password
+
+![error](./docs/error.png)  
+Error message
+
 ## Dependencies
 
 - [Angular 13](https://angular.io)
