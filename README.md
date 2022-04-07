@@ -1,4 +1,8 @@
-# PasswordGenerator
+# Password Generator
+
+## Credits
+
+- [Favicon](https://www.flaticon.com/premium-icon/key_807241) by [Freepik](https://www.flaticon.com/authors/freepik) on [Flaticon](https://www.flaticon.com/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
 
