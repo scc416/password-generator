@@ -1,6 +1,6 @@
 <h1>Password Generator</h1>
 <label> Length </label>
-<input type="number" />
+<input type="number" (keypress)="updateLength($event)" />
 
 <input type="checkbox" checked (change)="toggleUpperLetter()" /><label
   >Include Uppercase Letters</label
@@ -16,3 +16,6 @@
 >
 
 <button>Generate</button>
+
+<label>Password</label>
+<input type="number" [value]="password" />
