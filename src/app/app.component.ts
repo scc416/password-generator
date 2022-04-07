@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 const letters = 'abcdefghijklmnopqrstuvwxyz';
 const numbers = '0123456789';
 const symbols = ` !"#$%&'()*+,-./:;<=>?@[]^_\\` + '`{|}~';
+const ERROR_SHOW = 5000;
+
 const getRandomNum = (num: number) => Math.floor(Math.random() * num);
 const getPassword = (length: number, options: string) => {
   const optionsLength = options.length;
@@ -74,10 +76,11 @@ export class AppComponent {
   };
 
   generatePassword = () => {
+    this.error = '';
     const error = this.checkError();
     if (error) {
       this.error = error;
-      setTimeout(() => (this.error = ''), 5000);
+      setTimeout(() => (this.error = ''), ERROR_SHOW);
       return;
     }
     const stringOption = this.getPasswordOption();
