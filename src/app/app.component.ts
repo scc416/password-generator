@@ -5,6 +5,8 @@ const numbers = '0123456789';
 const symbols = ` !"#$%&'()*+,-./:;<=>?@[]^_\\` + '`{|}~';
 const ERROR_SHOW = 5000;
 const HINT_SHOW = 1500;
+const LENGTH_ERROR_MSG = 'The length is not a valid number.';
+const TICK_ERROR_MSG = 'Tick at least one check box.';
 
 const getRandomNum = (num: number) => Math.floor(Math.random() * num);
 const getPassword = (length: number, options: string) => {
@@ -59,14 +61,14 @@ export class AppComponent {
 
   checkError = (): void | string => {
     const validLength = this.length > 0;
-    if (!validLength) return 'Length is not valid.';
+    if (!validLength) return LENGTH_ERROR_MSG;
 
     const validOptions =
       this.includeUpperLetter ||
       this.includeLowerLetter ||
       this.includeNumber ||
       this.includeSymbol;
-    if (!validOptions) return 'Tick at least one check box.';
+    if (!validOptions) return TICK_ERROR_MSG;
   };
 
   getPasswordOption = () => {
