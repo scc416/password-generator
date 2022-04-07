@@ -13,7 +13,15 @@ export class AppComponent {
   includeSymbol = true;
 
   toggleUpperLetter = () => {
-    console.log('CLICK');
     this.includeUpperLetter = !this.includeUpperLetter;
+  };
+  toggleLowerLetter = () => {
+    this.includeLowerLetter = !this.includeLowerLetter;
+  };
+  toggleNumber = () => {
+    this.includeNumber = !this.includeNumber;
+  };
+  toggleSymbol = () => {
+    this.includeSymbol = !this.includeSymbol;
   };
 }

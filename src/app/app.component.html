@@ -5,8 +5,14 @@
 <input type="checkbox" checked (change)="toggleUpperLetter()" /><label
   >Include Uppercase Letters</label
 >
-<input type="checkbox" checked /><label>Include Lowercase Letters</label>
-<input type="checkbox" checked /><label>Include Numbers</label>
-<input type="checkbox" checked /><label>Include Symbols</label>
+<input type="checkbox" checked (change)="toggleLowerLetter()" /><label
+  >Include Lowercase Letters</label
+>
+<input type="checkbox" checked (change)="toggleNumber()" /><label
+  >Include Numbers</label
+>
+<input type="checkbox" checked (change)="toggleSymbol()" /><label
+  >Include Symbols</label
+>
 
 <button>Generate</button>
