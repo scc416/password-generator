@@ -20,6 +20,13 @@ const getPassword = (length: number, options: string) => {
   return result;
 };
 
+const removeZero = (str: string) => {
+  while (str[0] === '0') {
+    str = str.slice(1);
+  }
+  return str;
+};
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -38,7 +45,8 @@ export class AppComponent {
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
     const inputInt = parseInt(newInput);
-    const isPositiveNumber = inputInt.toString() === newInput && inputInt > 0;
+    const isPositiveNumber =
+      inputInt.toString() === removeZero(newInput) && inputInt > 0;
     if (isPositiveNumber) this.length = inputInt;
     if (!isPositiveNumber) this.length = 0;
   };
