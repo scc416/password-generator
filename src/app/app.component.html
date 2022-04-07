@@ -1,25 +1,62 @@
-<h1>Password Generator</h1>
-<label> Length </label>
-<input (keyup)="updateLength($event)" />
+<div class="columns is-centered">
+  <div class="column is-half box">
+    <h1 class="title">Password Generator</h1>
 
-<input type="checkbox" checked (change)="toggleUpperLetter()" /><label
-  >Include Uppercase Letters</label
->
-<input type="checkbox" checked (change)="toggleLowerLetter()" /><label
-  >Include Lowercase Letters</label
->
-<input type="checkbox" checked (change)="toggleNumber()" /><label
-  >Include Numbers</label
->
-<input type="checkbox" checked (change)="toggleSymbol()" /><label
-  >Include Symbols</label
->
+    <div class="field">
+      <label class="label">Length</label>
+      <div class="control">
+        <input class="input" (keyup)="updateLength($event)" />
+      </div>
+    </div>
 
-<button (click)="generatePassword()">Generate</button>
-<div *ngIf="error">ERROR: {{ error }}</div>
-<div *ngIf="password">
-  <label>Password</label>
-  <div>{{ password }}</div>
-  <button (click)="copyPassword()">Copy</button>
-  <div *ngIf="showHint">Password is copied to clipboard</div>
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" checked (change)="toggleUpperLetter()" />
+        Include Uppercase Letters
+      </label>
+    </div>
+
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" checked (change)="toggleLowerLetter()" />
+        Include Lowercase Letters
+      </label>
+    </div>
+
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" checked (change)="toggleNumber()" />
+        Include Numbers</label
+      >
+    </div>
+
+    <div class="field">
+      <label class="checkbox">
+        <input type="checkbox" checked (change)="toggleSymbol()" />
+        Include Symbols
+      </label>
+    </div>
+
+    <div class="block">
+      <button (click)="generatePassword()" class="button is-primary">
+        Generate
+      </button>
+      <span *ngIf="error" class="tag is-danger is-light">{{ error }}</span>
+    </div>
+
+    <div class="block">
+      <article class="message" *ngIf="password">
+        <div class="message-header">
+          <p>Password</p>
+        </div>
+        <div class="message-body">
+          {{ password }}
+          <button (click)="copyPassword()">Copy</button>
+          <span *ngIf="showHint" class="tag is-success">
+            Copied to clipboard
+          </span>
+        </div>
+      </article>
+    </div>
+  </div>
 </div>

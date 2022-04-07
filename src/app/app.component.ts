@@ -38,6 +38,7 @@ export class AppComponent {
     const inputInt = parseInt(newInput);
     const isPositiveNumber = !isNaN(inputInt) && inputInt > 0;
     if (isPositiveNumber) this.length = inputInt;
+    if (!isPositiveNumber) this.length = 0;
   };
 
   toggleUpperLetter = () => {
@@ -83,12 +84,14 @@ export class AppComponent {
     if (error) {
       this.error = error;
       setTimeout(() => (this.error = ''), ERROR_SHOW);
+      this.password = '';
       return;
     }
     const stringOption = this.getPasswordOption();
     const newPassword = getPassword(this.length, stringOption);
     this.password = newPassword;
   };
+
   copyPassword = () => {
     navigator.clipboard.writeText(this.password);
     this.showHint = true;
