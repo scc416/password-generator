@@ -1,6 +1,6 @@
 <h1>Password Generator</h1>
 <label> Length </label>
-<input type="number" (keypress)="updateLength($event)" />
+<input (keyup)="updateLength($event)" />
 
 <input type="checkbox" checked (change)="toggleUpperLetter()" /><label
   >Include Uppercase Letters</label
@@ -15,17 +15,7 @@
   >Include Symbols</label
 >
 
-<button
-  [disabled]="
-    length <= 0 ||
-    (!includeUpperLetter &&
-      !includeLowerLetter &&
-      !includeNumber &&
-      !includeSymbol)
-  "
->
-  Generate
-</button>
-
+<button (click)="generatePassword()">Generate</button>
+<div *ngIf="error">ERROR: {{ error }}</div>
 <label>Password</label>
 <input type="number" [value]="password" />

@@ -12,12 +12,14 @@ export class AppComponent {
   includeNumber = true;
   includeSymbol = true;
   password = '';
+  error = '';
 
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
     const inputInt = parseInt(newInput);
-    const isPositiveNumber = inputInt > 0;
-    if (!isPositiveNumber) this.length = inputInt;
+    const isPositiveNumber = !isNaN(inputInt) && inputInt > 0;
+    if (isPositiveNumber) this.length = inputInt;
+    console.log(this.length);
   };
 
   toggleUpperLetter = () => {
@@ -36,5 +38,26 @@ export class AppComponent {
     this.includeSymbol = !this.includeSymbol;
   };
 
-  generatePassword = () => {};
+  checkError = (): void | string => {
+    const validLength = this.length > 0;
+    if (!validLength) return 'Length is not valid.';
+
+    const validOptions =
+      this.includeUpperLetter ||
+      this.includeLowerLetter ||
+      this.includeNumber ||
+      this.includeSymbol;
+    if (!validOptions) return 'Tick at least one check box.';
+  };
+
+  generatePassword = () => {
+    const error = this.checkError();
+    console.log(error);
+    if (error) {
+      this.error = error;
+      setTimeout(() => (this.error = ''), 5000);
+      return;
+    }
+    this.password = 'NEW PASSWORD';
+  };
 }
