@@ -1,5 +1,20 @@
 import { Component } from '@angular/core';
 
+const letters = 'abcdefghijklmnopqrstuvwxyz';
+const numbers = '0123456789';
+const symbols = ` !"#$%&'()*+,-./:;<=>?@[]^_\\` + '`{|}~';
+const getRandomNum = (num: number) => Math.floor(Math.random() * num);
+const getPassword = (length: number, options: string) => {
+  const optionsLength = options.length;
+  let result = '';
+  for (let i = 0; i < length; i++) {
+    const index = getRandomNum(optionsLength);
+    const char = options[index];
+    result += char;
+  }
+  return result;
+};
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +34,6 @@ export class AppComponent {
     const inputInt = parseInt(newInput);
     const isPositiveNumber = !isNaN(inputInt) && inputInt > 0;
     if (isPositiveNumber) this.length = inputInt;
-    console.log(this.length);
   };
 
   toggleUpperLetter = () => {
@@ -50,14 +64,24 @@ export class AppComponent {
     if (!validOptions) return 'Tick at least one check box.';
   };
 
+  getPasswordOption = () => {
+    let result = '';
+    if (this.includeLowerLetter) result += letters;
+    if (this.includeUpperLetter) result += letters.toUpperCase();
+    if (this.includeNumber) result += numbers;
+    if (this.includeSymbol) result += symbols;
+    return result;
+  };
+
   generatePassword = () => {
     const error = this.checkError();
-    console.log(error);
     if (error) {
       this.error = error;
       setTimeout(() => (this.error = ''), 5000);
       return;
     }
-    this.password = 'NEW PASSWORD';
+    const stringOption = this.getPasswordOption();
+    const newPassword = getPassword(this.length, stringOption);
+    this.password = newPassword;
   };
 }
