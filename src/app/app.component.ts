@@ -20,11 +20,34 @@ const getPassword = (length: number, options: string) => {
   return result;
 };
 
-const removeZero = (str: string) => {
-  while (str[0] === '0') {
-    str = str.slice(1);
+const isNum = (str: string) => {
+  const isDot = str === '.';
+  if (isDot) return true;
+
+  const isNumber = numbers.includes(str);
+  if (isNumber) return true;
+
+  return false;
+};
+
+const isPureNum = (str: string) => {
+  for (const char of str) {
+    const isValidNum = isNum(char);
+    if (!isValidNum) return false;
   }
-  return str;
+  return true;
+};
+
+const getNewLength = (str: string) => {
+  const inputInt = parseInt(str);
+
+  const isWholePositiveNumber =
+    inputInt > 0 &&
+    inputInt.toString() === parseFloat(str).toString() &&
+    isPureNum(str);
+
+  if (isWholePositiveNumber) return inputInt;
+  return 0;
 };
 
 @Component({
@@ -44,11 +67,8 @@ export class AppComponent {
 
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
-    const inputInt = parseInt(newInput);
-    const isPositiveNumber =
-      inputInt.toString() === removeZero(newInput) && inputInt > 0;
-    if (isPositiveNumber) this.length = inputInt;
-    if (!isPositiveNumber) this.length = 0;
+    this.length = getNewLength(newInput);
+    console.log(this.length);
   };
 
   toggleUpperLetter = () => {
