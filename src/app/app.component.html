@@ -1,11 +1,11 @@
-<div class="columns is-centered">
+<div class="columns is-centered is-vcentered">
   <div class="column is-half box">
     <h1 class="title">Password Generator</h1>
 
     <div class="field">
       <label class="label">Length</label>
       <div class="control">
-        <input class="input" (keyup)="updateLength($event)" />
+        <input class="input" [value]="length" (keyup)="updateLength($event)" />
       </div>
     </div>
 
@@ -40,7 +40,7 @@
     <div class="block">
       <button
         (click)="generatePassword()"
-        class="button is-primary is-fullwidth"
+        class="button is-primary is-fullwidth mr-3"
       >
         Generate
       </button>
@@ -50,13 +50,21 @@
     <div class="block">
       <article class="message" *ngIf="password">
         <div class="message-body">
-          {{ password }}
-          <button (click)="copyPassword()" class="button is-small is-outlined">
-            Copy
-          </button>
-          <span *ngIf="showHint" class="tag is-success">
-            Copied to clipboard
-          </span>
+          <div class="block">
+            <button
+              (click)="copyPassword()"
+              class="mr-3 is-rounded button is-small is-outlined"
+            >
+              Copy
+            </button>
+
+            <span *ngIf="showHint" class="tag is-success">
+              Copied to clipboard
+            </span>
+          </div>
+          <div class="block">
+            {{ password }}
+          </div>
         </div>
       </article>
     </div>

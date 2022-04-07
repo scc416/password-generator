@@ -26,7 +26,7 @@ const getPassword = (length: number, options: string) => {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  length = 0;
+  length = 8;
   includeUpperLetter = true;
   includeLowerLetter = true;
   includeNumber = true;
@@ -38,7 +38,7 @@ export class AppComponent {
   updateLength = (e: KeyboardEvent) => {
     const newInput = (e.target as HTMLInputElement).value;
     const inputInt = parseInt(newInput);
-    const isPositiveNumber = !isNaN(inputInt) && inputInt > 0;
+    const isPositiveNumber = inputInt.toString() === newInput && inputInt > 0;
     if (isPositiveNumber) this.length = inputInt;
     if (!isPositiveNumber) this.length = 0;
   };
