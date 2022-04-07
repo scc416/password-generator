@@ -1,31 +1,35 @@
 # Password Generator
 
+A password generator with options, built with Angular 13.
+
+## Table of Content
+
+- [Live Demo](#live-demo)
+- [Final Product](#final-product)
+- [Dependencies](#dependencies)
+- [Getting Started](#getting-started)
+- [Credits](#credits)
+
+## Live Demo
+
+The web app is deployed to [Vercel](https://vercel.com/):  
+https://pw-genarator.vercel.app/
+
+## Final Product
+
+## Dependencies
+
+- [Angular 13](https://angular.io)
+- [Bulma](https://bulma.io/)
+
+## Getting Started
+
+1. Clone or download this repository onto your local device.
+2. `cd` to the folder where this project is cloned.
+3. Install all dependencies with `npm install` command.
+4. Run the app in the development mode with `npm start` command.
+5. Open the broswer and visit: [http://localhost:4200/](http://localhost:4200/).
+
 ## Credits
 
 - [Favicon](https://www.flaticon.com/premium-icon/key_807241) by [Freepik](https://www.flaticon.com/authors/freepik) on [Flaticon](https://www.flaticon.com/)
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.1.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
