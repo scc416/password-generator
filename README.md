@@ -13,7 +13,7 @@ A password generator with options, built with Angular 13.
 ## Live Demo
 
 The web app is deployed to [Vercel](https://vercel.com/):  
-https://pw-genarator.vercel.app/
+https://generate-pw.vercel.app/
 
 ## Final Product
 

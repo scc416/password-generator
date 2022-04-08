@@ -5,8 +5,10 @@ const numbers = '0123456789';
 const symbols = ` !"#$%&'()*+,-./:;<=>?@[]^_\\` + '`{|}~';
 const ERROR_SHOW = 5000;
 const HINT_SHOW = 1500;
+const MAX_LENGTH = 100;
 const LENGTH_ERROR_MSG = 'The length is not a valid number.';
 const TICK_ERROR_MSG = 'Tick at least one check box.';
+const MAX_LENGTH_MSG = `The maximum length is ${MAX_LENGTH}`;
 
 const getRandomNum = (num: number) => Math.floor(Math.random() * num);
 const getPassword = (length: number, options: string) => {
@@ -97,6 +99,8 @@ export class AppComponent {
       this.includeNumber ||
       this.includeSymbol;
     if (!validOptions) return TICK_ERROR_MSG;
+
+    if (this.length > MAX_LENGTH) return MAX_LENGTH_MSG;
   };
 
   getPasswordOption = () => {
