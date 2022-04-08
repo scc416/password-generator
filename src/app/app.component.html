@@ -1,5 +1,5 @@
-<div class="columns is-centered is-vcentered p-3">
-  <div class="column box">
+<div class="columns is-centered is-vcentered p-6">
+  <div class="column box p-5 pb-0">
     <h1 class="title">Password Generator</h1>
 
     <div class="field">
@@ -40,15 +40,15 @@
     <div class="block">
       <button
         (click)="generatePassword()"
-        class="button is-primary is-fullwidth mb-3"
+        class="button is-primary is-fullwidth"
       >
         Generate
       </button>
-      <span *ngIf="error" class="tag is-danger is-light">{{ error }}</span>
+      <span *ngIf="error" class="tag is-danger is-light mt-3">{{ error }}</span>
     </div>
 
-    <div class="block">
-      <article class="message" *ngIf="password">
+    <div class="block" *ngIf="password">
+      <article class="message">
         <div class="message-body">
           <div class="block">
             <button
